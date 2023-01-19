@@ -1,0 +1,15 @@
+<body>
+  <h2 id="title">{{title}}</h2>
+
+  <div *ngIf="!isAddTask">
+    <h2>Tasks List</h2>
+    <button (click)="addNewTask()">Add New task</button>
+    <div *ngFor="let tasks of taskList">
+      <app-task [taskIn]="tasks"></app-task>
+    </div>
+  </div>
+  
+  <div *ngIf="isAddTask">
+    <app-add-task (taskOut)="addTask($event)"></app-add-task>
+  </div>
+</body>
